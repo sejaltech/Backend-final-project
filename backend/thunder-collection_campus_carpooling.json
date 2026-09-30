@@ -1,0 +1,398 @@
+{
+  "clientName": "Thunder Client",
+  "collectionName": "Campus Carpooling Platform (Case Study 155)",
+  "collectionId": "campus-carpooling-col-155",
+  "dateExported": "2026-09-27T12:12:00.000Z",
+  "version": "1.1",
+  "folders": [
+    {
+      "_id": "auth-folder",
+      "name": "1. Authentication",
+      "containerId": "",
+      "created": "2026-09-27T12:12:00.000Z"
+    },
+    {
+      "_id": "rides-folder",
+      "name": "2. Rides Management",
+      "containerId": "",
+      "created": "2026-09-27T12:12:00.000Z"
+    },
+    {
+      "_id": "join-folder",
+      "name": "3. Ride Join & Capacity Logic",
+      "containerId": "",
+      "created": "2026-09-27T12:12:00.000Z"
+    },
+    {
+      "_id": "requests-folder",
+      "name": "4. Ride Requests & Moderation",
+      "containerId": "",
+      "created": "2026-09-27T12:12:00.000Z"
+    }
+  ],
+  "requests": [
+    {
+      "_id": "req-1-register-driver",
+      "colId": "campus-carpooling-col-155",
+      "containerId": "auth-folder",
+      "name": "1. Register (Driver / Student 1)",
+      "url": "{{baseUrl}}/api/auth/register",
+      "method": "POST",
+      "sortNum": 10000,
+      "created": "2026-09-27T12:12:00.000Z",
+      "modified": "2026-09-27T12:12:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"Rahul Sharma\",\n  \"email\": \"rahul.sharma@college.edu\",\n  \"password\": \"CollegePass123\",\n  \"phone\": \"+91 9876543210\"\n}"
+      }
+    },
+    {
+      "_id": "req-2-register-passenger1",
+      "colId": "campus-carpooling-col-155",
+      "containerId": "auth-folder",
+      "name": "1b. Register (Passenger 1 / Student 2)",
+      "url": "{{baseUrl}}/api/auth/register",
+      "method": "POST",
+      "sortNum": 11000,
+      "created": "2026-09-27T12:12:00.000Z",
+      "modified": "2026-09-27T12:12:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"Pooja Verma\",\n  \"email\": \"pooja.verma@college.edu\",\n  \"password\": \"CollegePass123\",\n  \"phone\": \"+91 9876500001\"\n}"
+      }
+    },
+    {
+      "_id": "req-3-register-passenger2",
+      "colId": "campus-carpooling-col-155",
+      "containerId": "auth-folder",
+      "name": "1c. Register (Passenger 2 / Student 3)",
+      "url": "{{baseUrl}}/api/auth/register",
+      "method": "POST",
+      "sortNum": 12000,
+      "created": "2026-09-27T12:12:00.000Z",
+      "modified": "2026-09-27T12:12:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"Amit Patel\",\n  \"email\": \"amit.patel@college.edu\",\n  \"password\": \"CollegePass123\",\n  \"phone\": \"+91 9876500002\"\n}"
+      }
+    },
+    {
+      "_id": "req-4-login-driver",
+      "colId": "campus-carpooling-col-155",
+      "containerId": "auth-folder",
+      "name": "2. Login (Driver / Student 1)",
+      "url": "{{baseUrl}}/api/auth/login",
+      "method": "POST",
+      "sortNum": 20000,
+      "created": "2026-09-27T12:12:00.000Z",
+      "modified": "2026-09-27T12:12:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"rahul.sharma@college.edu\",\n  \"password\": \"CollegePass123\"\n}"
+      }
+    },
+    {
+      "_id": "req-5-login-passenger1",
+      "colId": "campus-carpooling-col-155",
+      "containerId": "auth-folder",
+      "name": "2b. Login (Passenger 1 / Student 2)",
+      "url": "{{baseUrl}}/api/auth/login",
+      "method": "POST",
+      "sortNum": 21000,
+      "created": "2026-09-27T12:12:00.000Z",
+      "modified": "2026-09-27T12:12:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"pooja.verma@college.edu\",\n  \"password\": \"CollegePass123\"\n}"
+      }
+    },
+    {
+      "_id": "req-6-create-ride",
+      "colId": "campus-carpooling-col-155",
+      "containerId": "rides-folder",
+      "name": "3. Create Ride (Capacity = 1)",
+      "url": "{{baseUrl}}/api/rides",
+      "method": "POST",
+      "sortNum": 30000,
+      "created": "2026-09-27T12:12:00.000Z",
+      "modified": "2026-09-27T12:12:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{driverToken}}"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"route\": \"Kharghar Station to Campus Gate 1\",\n  \"departureTime\": \"2026-10-01T08:30:00.000Z\",\n  \"seatLimit\": 1\n}"
+      }
+    },
+    {
+      "_id": "req-7-get-all-rides",
+      "colId": "campus-carpooling-col-155",
+      "containerId": "rides-folder",
+      "name": "4. Get All Rides",
+      "url": "{{baseUrl}}/api/rides",
+      "method": "GET",
+      "sortNum": 40000,
+      "created": "2026-09-27T12:12:00.000Z",
+      "modified": "2026-09-27T12:12:00.000Z",
+      "headers": []
+    },
+    {
+      "_id": "req-8-filter-rides-route",
+      "colId": "campus-carpooling-col-155",
+      "containerId": "rides-folder",
+      "name": "5. Filter Rides by Route",
+      "url": "{{baseUrl}}/api/rides?route=Kharghar",
+      "method": "GET",
+      "sortNum": 50000,
+      "created": "2026-09-27T12:12:00.000Z",
+      "modified": "2026-09-27T12:12:00.000Z",
+      "headers": []
+    },
+    {
+      "_id": "req-9-filter-rides-time",
+      "colId": "campus-carpooling-col-155",
+      "containerId": "rides-folder",
+      "name": "6. Filter Rides by Time",
+      "url": "{{baseUrl}}/api/rides?time=2026-10-01",
+      "method": "GET",
+      "sortNum": 60000,
+      "created": "2026-09-27T12:12:00.000Z",
+      "modified": "2026-09-27T12:12:00.000Z",
+      "headers": []
+    },
+    {
+      "_id": "req-10-get-ride-id",
+      "colId": "campus-carpooling-col-155",
+      "containerId": "rides-folder",
+      "name": "7. Get Ride by ID",
+      "url": "{{baseUrl}}/api/rides/{{rideId}}",
+      "method": "GET",
+      "sortNum": 70000,
+      "created": "2026-09-27T12:12:00.000Z",
+      "modified": "2026-09-27T12:12:00.000Z",
+      "headers": []
+    },
+    {
+      "_id": "req-11-update-own-ride",
+      "colId": "campus-carpooling-col-155",
+      "containerId": "rides-folder",
+      "name": "8. Update Own Ride (by Driver)",
+      "url": "{{baseUrl}}/api/rides/{{rideId}}",
+      "method": "PUT",
+      "sortNum": 80000,
+      "created": "2026-09-27T12:12:00.000Z",
+      "modified": "2026-09-27T12:12:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{driverToken}}"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"route\": \"Kharghar Station to Main Academic Building\",\n  \"seatLimit\": 2\n}"
+      }
+    },
+    {
+      "_id": "req-12-update-other-ride",
+      "colId": "campus-carpooling-col-155",
+      "containerId": "rides-folder",
+      "name": "9. Try Updating Someone Else's Ride (Expect 403 Forbidden)",
+      "url": "{{baseUrl}}/api/rides/{{rideId}}",
+      "method": "PUT",
+      "sortNum": 90000,
+      "created": "2026-09-27T12:12:00.000Z",
+      "modified": "2026-09-27T12:12:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{passengerToken}}"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"route\": \"Unauthorized Route Update\"\n}"
+      }
+    },
+    {
+      "_id": "req-13-join-ride-pass1",
+      "colId": "campus-carpooling-col-155",
+      "containerId": "join-folder",
+      "name": "11. Join Ride (Passenger 1)",
+      "url": "{{baseUrl}}/api/rides/{{rideId}}/join",
+      "method": "POST",
+      "sortNum": 110000,
+      "created": "2026-09-27T12:12:00.000Z",
+      "modified": "2026-09-27T12:12:00.000Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{passengerToken}}"
+        }
+      ]
+    },
+    {
+      "_id": "req-14-duplicate-join",
+      "colId": "campus-carpooling-col-155",
+      "containerId": "join-folder",
+      "name": "13. Try Duplicate Join (Expect 409 Conflict)",
+      "url": "{{baseUrl}}/api/rides/{{rideId}}/join",
+      "method": "POST",
+      "sortNum": 130000,
+      "created": "2026-09-27T12:12:00.000Z",
+      "modified": "2026-09-27T12:12:00.000Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{passengerToken}}"
+        }
+      ]
+    },
+    {
+      "_id": "req-15-join-full-ride",
+      "colId": "campus-carpooling-col-155",
+      "containerId": "join-folder",
+      "name": "12. Try Joining Full Ride (Passenger 2 - Expect 400 Bad Request)",
+      "url": "{{baseUrl}}/api/rides/{{rideId}}/join",
+      "method": "POST",
+      "sortNum": 120000,
+      "created": "2026-09-27T12:12:00.000Z",
+      "modified": "2026-09-27T12:12:00.000Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{passenger2Token}}"
+        }
+      ]
+    },
+    {
+      "_id": "req-16-get-ride-requests",
+      "colId": "campus-carpooling-col-155",
+      "containerId": "requests-folder",
+      "name": "14. Get Ride Requests (by Driver)",
+      "url": "{{baseUrl}}/api/rides/{{rideId}}/requests",
+      "method": "GET",
+      "sortNum": 140000,
+      "created": "2026-09-27T12:12:00.000Z",
+      "modified": "2026-09-27T12:12:00.000Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{driverToken}}"
+        }
+      ]
+    },
+    {
+      "_id": "req-17-reject-request",
+      "colId": "campus-carpooling-col-155",
+      "containerId": "requests-folder",
+      "name": "16. Reject Request (Frees 1 Seat)",
+      "url": "{{baseUrl}}/api/rides/{{rideId}}/requests/{{requestId}}",
+      "method": "PATCH",
+      "sortNum": 160000,
+      "created": "2026-09-27T12:12:00.000Z",
+      "modified": "2026-09-27T12:12:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{driverToken}}"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"status\": \"REJECTED\"\n}"
+      }
+    },
+    {
+      "_id": "req-18-accept-request",
+      "colId": "campus-carpooling-col-155",
+      "containerId": "requests-folder",
+      "name": "15. Accept Request (Claims 1 Seat)",
+      "url": "{{baseUrl}}/api/rides/{{rideId}}/requests/{{requestId}}",
+      "method": "PATCH",
+      "sortNum": 150000,
+      "created": "2026-09-27T12:12:00.000Z",
+      "modified": "2026-09-27T12:12:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{driverToken}}"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"status\": \"ACCEPTED\"\n}"
+      }
+    },
+    {
+      "_id": "req-19-cancel-own-ride",
+      "colId": "campus-carpooling-col-155",
+      "containerId": "rides-folder",
+      "name": "10. Cancel Own Ride (by Driver)",
+      "url": "{{baseUrl}}/api/rides/{{rideId}}",
+      "method": "DELETE",
+      "sortNum": 100000,
+      "created": "2026-09-27T12:12:00.000Z",
+      "modified": "2026-09-27T12:12:00.000Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{driverToken}}"
+        }
+      ]
+    }
+  ]
+}
